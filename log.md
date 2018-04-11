@@ -23,3 +23,29 @@ Thoughts: So I can call factorialize within my factorialize function?  I want to
 Day 2: 2/27/2018
 
 I worked on the Into to AJAX class today.  Watching the videos has been helpful in getting an idea of how it all works together.  I'm trying to use JQUERY to display coordinates in Google Maps at the moment.
+
+Day 44: 4/11/2018
+
+It's been a long time since I've updated this.  I've been posting to Twitter everyday, but neglected this journal.  I worked through the Free Code Camp Intermediate Algorithm DNA PAIRING.  
+function pairElement(str) {
+  var newPair=[];
+  for(var x=0; x<str.length; x++){
+    if(str[x]==='G'){
+      newPair.push((str[x] + 'C').split(''));    
+    } else if (str[x]==='C'){
+      newPair.push((str[x] + 'G').split(''));
+    }
+    else if (str[x]==='T'){
+      newPair.push((str[x] + 'A').split(''));
+    }
+    else if (str[x]==='A'){
+      newPair.push((str[x] + 'T').split(''));
+    }
+  }
+   return newPair;
+}
+
+pairElement("GCG");
+
+I'm also playing around with portfolio templates on Github Pages.
+
