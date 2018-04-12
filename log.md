@@ -49,3 +49,6 @@ pairElement("GCG");
 
 I'm also playing around with portfolio templates on Github Pages.
 
+Day 45: 4/12/18
+Got my portfolio up on Github https://gavinsimon1.github.io  I'm stoked because this was a goal of mine.  I still need to improve the design and add projects.  But I'm excited that everything I build will be displayed.  
+
