@@ -52,3 +52,18 @@ I'm also playing around with portfolio templates on Github Pages.
 Day 45: 4/12/18
 Got my portfolio up on Github https://gavinsimon1.github.io  I'm stoked because this was a goal of mine.  I still need to improve the design and add projects.  But I'm excited that everything I build will be displayed.  
 
+Missing Letters Solution:
+function fearNotLetter(str) {
+
+   for(var x=0; x < str.length - 1; x++){
+     if (str.charCodeAt(x+1)- str.charCodeAt(x) != 1){
+       return String.fromCharCode(str.charCodeAt(x) + 1);
+     }
+   }
+}
+
+fearNotLetter("abce");
+
+Explanation:
+The for loop give the index of the string.  If the next index number less the index number is not equal to 1, then return the index number plus 1. So a has an index of 97, b is 98, c is 99, e is 101.  101 less 99 is not 1, so it returns the missing index number of 100.  I use String.fromCharCode to change the index number back to an alphabet letter.  Cool beans.
+
