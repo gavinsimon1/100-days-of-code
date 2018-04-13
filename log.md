@@ -67,3 +67,28 @@ fearNotLetter("abce");
 Explanation:
 The for loop give the index of the string.  If the next index number less the index number is not equal to 1, then return the index number plus 1. So a has an index of 97, b is 98, c is 99, e is 101.  101 less 99 is not 1, so it returns the missing index number of 100.  I use String.fromCharCode to change the index number back to an alphabet letter.  Cool beans.
 
+Day 46 4/13/2018 Friday the 13th AKA "Lucky Friday"
+SOlved Boo who Challenge
+
+function booWho(bool) {
+  // What is the new fad diet for ghost developers? The Boolean.
+ var cool = typeof(bool) === "boolean";
+  return cool;
+}
+
+booWho(null);
+
+Explanation:
+I found the initial explanation confusing.  The different types are:
+1) Primative value booleans: The most common way is to set a variable to true or false. 
+       var cat = true; console.log(cat); // returns true
+       var dog = false;  console.log(dog); // returns false
+2) Boolean functions: 
+       Boolean(2>1) returns true and Boolean(1>2) returns false. 
+3) Boolean functions can be used as a constructor by adding New
+4) Use var x = new Boolean().  I tried using new Boolean as a constructor but JS Bin didn't like that
+It was helpful to get an overview of the complex world of booleans, but turned out to be more of a detour. 
+
+It turns out that typeof() is the key to this challenge. 
+    console.log(typeof(bool)); //returns boolean, object, number, string, or undefined.
+So if the variable is true or false it will return "boolean" which will return true in the solution above.  If it doesn't equal "boolean" it will return false.
