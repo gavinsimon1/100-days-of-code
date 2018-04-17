@@ -96,12 +96,72 @@ So if the variable is true or false it will return "boolean" which will return t
 Sorted Union Algorithm Challenge
 
 function uniteUnique(arr) {
-  return Array.prototype.concat(Array).concat.apply([],    arguments).filter(function(elem, index, array){
-    return array.indexOf(elem) === index;
-  });
+  var args = [];
+  for(var x=0; x<arguments.length; x++){
+    var blue = arguments[x];
+    for(var y=0; y<blue.length; y++){
+      var balls = blue[y];
+      if(args.indexOf(balls)<0){
+        args.push(balls);
+      }
+    }
+  }
+  return args;
 }
 
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
 
+**Day 48 4/15/2018 Sunday**
 Explanation:
-Array.prototype.concat(Array)
+When I console logged arr, I only got the first object in the array.  I wasn't sure how to access the other parts of the array.  But using the arguments object worked. Free Code Camp provides a great overview of arguments: https://forum.freecodecamp.org/t/javascript-arguments/14283 
+console.log(arguments); //returns all the objects in the array. 
+[object Arguments] {
+  0: [1, 3, 2],
+  1: [5, 2, 1, 4],
+  2: [2, 1]
+}
+I can access specific parts of the arry with console.log(arguments[x]);
+However, arguments is not an array.  The same link also explains that the best way to convert arguments into an array is:  
+var args = []; // Empty array, at first.
+for (var i = 0; i < arguments.length; i++) {
+    args.push(arguments[i])
+} 
+This will return all of the arguments as an array: [[1, 3, 2], [5, 2, 1, 4], [2, 1]]
+Now we have all of the arguments as an array, but we still need to combine them.  Removing push and setting arguments[x] equal to a variable returns:
+[1, 3, 2]
+[5, 2, 1, 4]
+[2, 1]
+A second loop through returns all of the elements of the arrays as:
+1
+3
+2
+5
+2
+1
+4
+2
+1
+console.log(args.indexOf(balls)) returns:
+-1
+-1
+-1
+-1
+2
+0
+-1
+2
+0
+So 1,3,2,5 are not found in args. But 2 and 1 are.  4 is not, but 2 and 1 are again.  So if it's less than 0, we push it to args.
+**Day 49 4/16/2018 Monday**
+Diving into regular expressions today
+I found out there are two ways to write regular expressions.  The longway:
+regexp = new RegExp("pattern", "flags");
+And the short way:
+regexp = /pattern/; // no flags
+regexp = /pattern/gmi; // with flags g,m and i 
+I like this example of a simple regular expression:
+
+let str = "I love JavaScript!"; 
+let regexp = /love/;
+alert( str.search(regexp) ); // 2
+alert( str.search(/LOVE/i) ); // 2
