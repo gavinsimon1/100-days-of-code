@@ -111,7 +111,7 @@ function uniteUnique(arr) {
 
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
 
-**Day 48 4/15/2018 Sunday**
+********Day 48 4/15/2018 Sunday******
 Explanation:
 When I console logged arr, I only got the first object in the array.  I wasn't sure how to access the other parts of the array.  But using the arguments object worked. Free Code Camp provides a great overview of arguments: https://forum.freecodecamp.org/t/javascript-arguments/14283 
 console.log(arguments); //returns all the objects in the array. 
@@ -152,6 +152,8 @@ console.log(args.indexOf(balls)) returns:
 2
 0
 So 1,3,2,5 are not found in args. But 2 and 1 are.  4 is not, but 2 and 1 are again.  So if it's less than 0, we push it to args.
+
+
 **Day 49 4/16/2018 Monday**
 Diving into regular expressions today
 I found out there are two ways to write regular expressions.  The longway:
@@ -165,3 +167,48 @@ let str = "I love JavaScript!";
 let regexp = /love/;
 alert( str.search(regexp) ); // 2
 alert( str.search(/LOVE/i) ); // 2
+
+**Day 50 4/17/2018 Tuesday**
+Convert HTML Entities Challenge
+function convertHTML(str) {
+ var object = {
+   '&': '&amp;',
+   '<': '&lt;',
+   '>': '&gt;',
+   '"': '&quot;',
+   "'": '&apos;',
+ };
+  for (var x in object){
+    var before = x;
+    var after = object[x];
+    var pattern = new RegExp(before, 'g');
+    str = str.replace(pattern, after);
+   
+  }
+   return str;
+}
+
+convertHTML("Dolce & Gabbana");
+
+Explanation: for(variable in object) can be used with an object.  When I console.log(before); I get:
+"&"
+"<"
+">"
+"\""
+"'"
+console.log(after); results in:
+"&amp;"
+"&lt;"
+"&gt;"
+"&quot;"
+"&apos;"
+
+So this part of the code is giving me the two pieces I need.  
+for (x in object){
+var before = x;
+var after = object[x];
+
+Now, to put them together.
+The new RegExp constructor creates a regular expression object for matching text with a pattern.  "Use the constructor function when you know the regular expression pattern will be changing, or you don't know the pattern and are getting it from another source, such as user input."
+
+Finally replace allows me to change the regular expression to after.  
