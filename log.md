@@ -211,4 +211,24 @@ var after = object[x];
 Now, to put them together.
 The new RegExp constructor creates a regular expression object for matching text with a pattern.  "Use the constructor function when you know the regular expression pattern will be changing, or you don't know the pattern and are getting it from another source, such as user input."
 
-Finally replace allows me to change the regular expression to after.  
+Finally replace allows me to change the regular expression to after. 
+
+Spinal Tap Case
+str=str.toLowerCase().split(" ").join('-'); works for some of the cases but not all of them.  
+
+**Day 51 4/18/2018 Wednesday**
+function spinalCase(str) {
+ var blue = str.replace(/_/g, '');
+   var balls = blue.replace(/([A-Z])/g, ' $1');
+   var dog = balls.replace(/\s+/g, '-').toLowerCase();
+   var hairy = dog.replace(/^-/, '');
+
+   return hairy;
+}
+
+spinalCase('thisIsSpinalTap');
+
+Explanation:
+This one took a lot of tinkering.  First I replace all of the underscores with spaces.  I found this great article https://codeburst.io/javascript-learn-regular-expressions-for-beginners-bb6107015d91 explaining regular expressions.  He specifically explains how to replace camel case with spaces.  He shows how to use capturing parenthesis to remember the matched capital letters which are accessed with $1.  So now we have spaces between words.  Next I remove the spaces and add a dash.  I thought I was done, but there are dashes at the beginning of some of the cases.  The final line uses ^- to remove the first dash while keeping the rest.  
+
+
