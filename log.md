@@ -231,4 +231,42 @@ spinalCase('thisIsSpinalTap');
 Explanation:
 This one took a lot of tinkering.  First I replace all of the underscores with spaces.  I found this great article https://codeburst.io/javascript-learn-regular-expressions-for-beginners-bb6107015d91 explaining regular expressions.  He specifically explains how to replace camel case with spaces.  He shows how to use capturing parenthesis to remember the matched capital letters which are accessed with $1.  So now we have spaces between words.  Next I remove the spaces and add a dash.  I thought I was done, but there are dashes at the beginning of some of the cases.  The final line uses ^- to remove the first dash while keeping the rest.  
 
+**Day 52 4/19/2018 Thursday**
+Sum All Odd Fibonacci Numbers
+function sumFibs(num) {
+  var num1 = 0;
+  var num2 = 1;
+  var result =1;
+  var odd =[];
+  
+  for(var i=0; i <= num; i++){
+    next = num1 + num2;
+    num1 = num2;
+    num2 = result;
+   
+     if(num1%2==1 && num1<=num){
+     odd.push(num1);
+   } 
 
+  } 
+ console.log(odd);
+  var sum = odd.reduce(add, 0);
+
+      function add(a, b) {
+              return a + b;
+     }
+
+   return (sum);
+      
+}
+
+sumFibs(4);
+
+Explanation:
+Fibonacci sequence: every number after the first two is the sum of the two preceding ones. The sequence is: 1,1,2,3,5,8,13,21,34,55,89,144,... 
+Within the loop for loop 
+//num1 returns 1,1,2,3,5
+//num2 returns 1,2,3,5,8
+//result returns 1,2,3,5,8
+//num remains 4
+Then I needed to check if the number was odd and less than or equal to the number.  Numbers that pass that test get pushed into the odd array.  I used another function to add the numbers together.  
