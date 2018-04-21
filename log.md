@@ -270,3 +270,16 @@ Within the loop for loop
 //result returns 1,2,3,5,8
 //num remains 4
 Then I needed to check if the number was odd and less than or equal to the number.  Numbers that pass that test get pushed into the odd array.  I used another function to add the numbers together.  
+
+**Day 53 4/20/2018 Friday**
+Worked on Sum All Primes.  Got the first solution quickly.  It identified all of the prime numbers in 10.  But 977 is itself Prime.  To find all of the prime numbers in a prime number, I need to go back to the drawing board.
+function sumPrimes(num) {
+for(var x = 2; x <= num; x++){
+    if(num % x === 0){
+     keep.push(x);
+      console.log(keep);  
+    } 
+  }
+  }
+
+sumPrimes(10);
