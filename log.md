@@ -312,3 +312,10 @@ for (var x=0; x < array.length; x++){
 sumPrimes(10);
 
 Explanation: I used an array of all the prime numbers up to 1000.  First a for loop cycles through the array and returns all of the numbers less than or equal to the num variable.  Those get pushed to a blank array.  I initially tried to create the adding function within the for loop, but JS Bin wasn't having that.  It was a good thing to learn.  Stringing together functions.  The add function adds two numbers, then blank.reduce(add) takes out the garbage.  
+
+**Day 54 4/22/2018 Sunday**
+Worked on Smallest Common Multiple.  Got all of the primes in each mulitple, but I don't think that will work.
+Spent time investigating career paths in web development.  I looked at the next steps for Javascript, and if I should learn PHP to be able to do Wordpress development.  Still not sure, but definately continuing with the FCC Front End Cert.
+
+**Day 55 4/23/2018 Monday**
+Still working on Smallest Common Multiple.
