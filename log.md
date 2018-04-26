@@ -319,3 +319,17 @@ Spent time investigating career paths in web development.  I looked at the next 
 
 **Day 55 4/23/2018 Monday**
 Still working on Smallest Common Multiple.
+**Day 57 4/24/2018 Wedesday**
+Tried a bunch of code, which I should have recorded.  I finally found that the code below will return the greatest common denominator.
+
+function gcd(a, b){
+  
+  if(b === 0 || a === b)
+    return a;
+  else if(a > b)
+    return gcd(a-b,b);
+  else if(b > a)
+     return gcd(a,b-a);
+}
+
+For gcd(5,4) this returns 1.  Reversing the numbers returns the same result. 
