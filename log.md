@@ -319,7 +319,7 @@ Spent time investigating career paths in web development.  I looked at the next 
 
 **Day 55 4/23/2018 Monday**
 Still working on Smallest Common Multiple.
-**Day 57 4/24/2018 Wedesday**
+**Day 57 4/25/2018 Wedesday**
 Tried a bunch of code, which I should have recorded.  I finally found that the code below will return the greatest common denominator.
 
 function gcd(a, b){
@@ -333,3 +333,58 @@ function gcd(a, b){
 }
 
 For gcd(5,4) this returns 1.  Reversing the numbers returns the same result. 
+
+**Day 57 4/27/2018 Friday**
+I passed all of the tests except the last one.  I was getting a Stack Overflow with the final test smallestCommons([23, 18]). Changing the Greatest Common Denominator function to the code below solved the problem.
+function gcd(a, b) {
+  if (!b) {
+    return a;
+  }
+  return gcd(b, a % b);
+}
+Now I have to figure out why.  The full solution is:
+function smallestCommons(arr) {
+  var list = [];
+  var a = arr[0];
+  var b = arr[1];
+ 
+  var max = arr.reduce(function(a,b){
+      return Math.max(a,b);
+  });
+  
+ //  console.log(max);
+  var min = arr.reduce(function(a,b){
+    return Math.min(a,b);
+  });
+  
+   //console.log(min);
+  
+   for(var x=min; x<=max; x++){
+        list.push(x);  
+  }
+  
+ //console.log(list);
+ 
+ function gcd(a, b) {
+  if (b===0) {
+    return a;
+  }
+  return gcd(b, a % b);
+}
+
+   // console.log(gcd(a,b));
+  function lcm(a,b){
+    return (a * b) / gcd(a, b);
+  }
+   //console.log(lcm(4,5));
+ 
+  var balls = list.reduce(function(a,b){
+   return lcm(a,b);
+  });
+  return balls;
+ 
+}   
+smallestCommons([23, 18]);
+
+Explanation:
+Find the highest and lowest numbers.  Then find all of the numbers in between.  Find the Greatest Common Denominator.  Use that to return the Lowest Common Multiple.  Reduce the range of numbers and find the LCM of all of them. 
