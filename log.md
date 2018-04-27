@@ -334,7 +334,7 @@ function gcd(a, b){
 
 For gcd(5,4) this returns 1.  Reversing the numbers returns the same result. 
 
-**Day 57 4/27/2018 Friday**
+**Day 59 4/27/2018 Friday**
 I passed all of the tests except the last one.  I was getting a Stack Overflow with the final test smallestCommons([23, 18]). Changing the Greatest Common Denominator function to the code below solved the problem.
 function gcd(a, b) {
   if (!b) {
