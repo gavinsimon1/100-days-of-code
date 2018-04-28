@@ -388,3 +388,19 @@ smallestCommons([23, 18]);
 
 Explanation:
 Find the highest and lowest numbers.  Then find all of the numbers in between.  Find the Greatest Common Denominator.  Use that to return the Lowest Common Multiple.  Reduce the range of numbers and find the LCM of all of them. 
+
+**Day 60 4/28/2018 Saturday**
+Finders Keepers
+
+function findElement(arr, func) {
+ var newArr = arr.filter(function(num){ return num % 2 === 0; });
+  
+ return newArr[0];
+
+}
+
+findElement([1, 3, 5, 8, 9, 10], function(num){ return num % 2 === 0; });
+
+Explanation:
+This next one was pretty easy.  I was a little unsure how to handle the test at the bottom.  But it turns out that arr.filter takes care of it.  I just need to repeat the test within the filter.  I set that to a variable called newArr.  It checks each element in the array and returns the result of the test.  We only need the first element in the array that passes the test, so newArr[0] does the trick.  
+
