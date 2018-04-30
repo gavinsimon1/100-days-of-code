@@ -404,3 +404,28 @@ findElement([1, 3, 5, 8, 9, 10], function(num){ return num % 2 === 0; });
 Explanation:
 This next one was pretty easy.  I was a little unsure how to handle the test at the bottom.  But it turns out that arr.filter takes care of it.  I just need to repeat the test within the filter.  I set that to a variable called newArr.  It checks each element in the array and returns the result of the test.  We only need the first element in the array that passes the test, so newArr[0] does the trick.  
 
+**Day 61 4/29/2018 Sunday**
+Drop It Challenge
+Exploring the "arguments object" today on Code Train.  Javascript is such a mind binder sometimes.  
+function dropElements(arr, func) { 
+console.log(arguments);
+ }
+dropElements([1, 2, 3], function(n) {return n < 3; });
+
+//[object Arguments] { 0: [1, 2, 3], 1: function (n) {return n < 3; }}
+**Day 62 4/30/2018 Monday**
+After spending a bunch of time exploring object arguments, shift, and slice I ended up going with a for loop.  I tried out shift earlier, which returned the first false number, but I couldn't figure out how to loop through all of the numbers.  arr.shift(func[0]); 
+The filter function passed 3 of the 5 tests. arr.filter(func)  It actually worked too well!  It didn't stop after the first true.  So in the end, the for loop below works:
+
+function dropElements(arr,func) {
+for (var i =0; i<arr.length+i; i++) {
+if(func(arr[0]) === false ) {
+arr.shift();
+} else {
+return arr;
+}
+}
+return arr;
+}
+
+dropElements([1, 2, 3], function(n) {return n < 3; });
