@@ -452,3 +452,21 @@ I hope I'll be able to refactor this soon, but it works.
 
 steamrollArray([1, [2], [3, [[4]]]]);
 
+**Day 63 5/1/2018 Tuesday**
+function binaryAgent(str) {
+  var binaryCode  = str.split(" ");
+  var biWords= [];
+  
+
+  for(var x=0; x<binaryCode.length; x++){
+    biWords.push(String.fromCharCode(parseInt(binaryCode[x], 2)));
+       
+  }
+  
+ return biWords.join("");
+ 
+}
+
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+
+
