@@ -429,3 +429,26 @@ return arr;
 }
 
 dropElements([1, 2, 3], function(n) {return n < 3; });
+
+Steamroller
+This function returns //[1, 2, 3, [[4]]] which is close, but not quite it.  
+function steamrollArray(arr) {
+ var flattened = [].concat.apply([], arr);
+  console.log(flattened);
+
+I'm not sure hwo to cycle through it, but running this multiple times solved the problem!
+function steamrollArray(arr) {
+    var flattened = [].concat.apply([], arr);
+    var moreFlat = [].concat.apply([], flattened);
+    var flattest =[].concat.apply([], moreFlat);
+  return flattest;
+}
+
+steamrollArray([1, [2], [3, [[4]]]]);
+
+}
+
+I hope I'll be able to refactor this soon, but it works.
+
+steamrollArray([1, [2], [3, [[4]]]]);
+
