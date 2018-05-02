@@ -488,3 +488,19 @@ truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "ma
 Explanation: 
 First we need a for loop to cycle through the collection array. collection[x][pre] will return the sex of each of the parts of the array.  If there is no sex, it gets pushed to an empty array.  If there is nothing in the array, then everything returned as true and it gives us the final true statement.  If there is something in the array, the final statement will be false.  
 
+Arguments Optional Challenge
+function addTogether() {
+ if (arguments.length === 1 && typeof arguments[0] === 'number'){
+   var x = arguments[0];
+   return function(y){
+     if(typeof y === 'number'){
+       return x + y;
+     }    
+   };   
+ } else if (typeof arguments[0] === 'number' && typeof arguments[1] === 'number'){
+   return arguments[0] + arguments[1];    
+ }
+}
+addTogether(2,3);
+
+Explanation:  This was a brain twister, but the solution makes sense.  First we check to see if there are two varibles being passed into the function.  If there is only one variable, and it is a number then we do something.  If there are two variables, and they are both numbers, we add them together.  If there is only one variable, we create a function to add them. We don't know what the first variable will be, so we set it to x.  Then we use a function y to add the two.  It looks very simple in retrospect.   
