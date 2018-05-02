@@ -469,4 +469,22 @@ function binaryAgent(str) {
 
 binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
 
+**Day 64 5/2/2018 Wednesday**
+Everything Be True Challenge
+function truthCheck(collection, pre) {
+  // Is everyone being true?
+  var arr=[];
+for (var x=0; x<collection.length; x++){
+  if(!collection[x][pre]){
+      arr.push(collection[x]);
+  } 
+}
+  if(arr.length === 0){
+    return true;
+  } else {return false;}
+}
+truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
+
+Explanation: 
+First we need a for loop to cycle through the collection array. collection[x][pre] will return the sex of each of the parts of the array.  If there is no sex, it gets pushed to an empty array.  If there is nothing in the array, then everything returned as true and it gives us the final true statement.  If there is something in the array, the final statement will be false.  
 
