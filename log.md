@@ -503,4 +503,49 @@ function addTogether() {
 }
 addTogether(2,3);
 
-Explanation:  This was a brain twister, but the solution makes sense.  First we check to see if there are two varibles being passed into the function.  If there is only one variable, and it is a number then we do something.  If there are two variables, and they are both numbers, we add them together.  If there is only one variable, we create a function to add them. We don't know what the first variable will be, so we set it to x.  Then we use a function y to add the two.  It looks very simple in retrospect.   
+Explanation:  This was a brain twister, but the solution makes sense.  First we check to see if there are two varibles being passed into the function.  If there is only one variable, and it is a number then we do something.  If there are two variables, and they are both numbers, we add them together.  If there is only one variable, we create a function to add them. We don't know what the first variable will be, so we set it to x.  Then we use a function y to add the two.  It looks very simple in retrospect.  
+
+
+**Day 65 5/3/2018 Thursday**
+Starting the Advanced Algorithm Challanges!  First up is Validate US Telephone Numbers Challenge.
+I did it with the following code:
+function telephoneCheck(str) {
+  // Good luck!
+// var phoneRegEx = /\d$ \(\d\d\d\) \d\d\d \d\d\d\d$/;
+   var phoneRegEx = /^1? \(\d\d\d\) \d\d\d-\d\d\d\d$/;
+   var phoneRegEx1 = /^1? \d\d\d-\d\d\d-\d\d\d\d$/;
+   var phoneRegEx2 = /^1?\d\d\d\d\d\d\d\d\d\d$/;
+   var phoneRegEx3 = /^1?\d\d\d-\d\d\d-\d\d\d\d$/;
+   var phoneRegEx4 = /^1?\d\d\d-\d\d\d-\d\d\d\d$/;
+   var phoneRegEx5 = /^1?\(\d\d\d\)\d\d\d-\d\d\d\d$/;
+   var phoneRegEx6 = /^1? \d\d\d \d\d\d \d\d\d\d$/;
+  
+  if(str.match(phoneRegEx)){
+    return true;
+  } 
+  else if (str.match(phoneRegEx1)){
+            return true;
+            } 
+  else if (str.match(phoneRegEx2)){
+            return true;
+            }
+  else if (str.match(phoneRegEx3)){
+            return true;
+            }
+  else if (str.match(phoneRegEx4)){
+            return true;
+            }
+  else if (str.match(phoneRegEx5)){
+            return true;
+            }
+  else if (str.match(phoneRegEx6)){
+            return true;
+            }
+  
+  else {return false;}
+}
+telephoneCheck("555-555-5555");
+
+Then I learned that I could do it in a single line!  Much better.
+var phoneRegEx = /^1? ?(\d{3}|\(\d{3}\))[ -]?\d{3}[ -]?\d{4}$/; 
+
