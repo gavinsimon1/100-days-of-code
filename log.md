@@ -549,3 +549,26 @@ telephoneCheck("555-555-5555");
 Then I learned that I could do it in a single line!  Much better.
 var phoneRegEx = /^1? ?(\d{3}|\(\d{3}\))[ -]?\d{3}[ -]?\d{4}$/; 
 
+
+**Day 66 5/4/2018 Friday**
+I was really stumped on this one.  Thankfully, I found a good discussion in the forum.  Here is the final code:
+
+function updateRecords(id, prop, value) {
+  if(prop !== "tracks" && value !== ""){
+    collection[id][prop] = value;   
+  } else if (prop === "tracks" && value !== ""){
+    var check = collection[id].hasOwnProperty('tracks');
+    if (check === false) {
+      collection[id].tracks = [];
+      collection[id][prop].push(value);
+    }
+    else if (check === true) {
+      collection[id][prop].push(value);
+    }
+  } else {delete collection[id][prop];}
+  
+  return collection;
+}
+
+Explanation: If the prop is not tracks and value is not empty, set the property of the ID to the new value.  If the property is tracks and the vale is not blank, check to see if the ID has a track property.  If it does, push the value to that property.  If not, create an empty array and push the value to the empty array.  If there is no tracks then delete the property altogether.   
+
