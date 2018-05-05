@@ -611,12 +611,13 @@ function difference(arr1, arr2){
     }
     
   });
-       console.log(result);
+       
     
       
     }
     
-  })
+  });
+  return result;
     
   }
   return args.reduce(difference);
