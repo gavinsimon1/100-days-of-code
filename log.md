@@ -572,3 +572,58 @@ function updateRecords(id, prop, value) {
 
 Explanation: If the prop is not tracks and value is not empty, set the property of the ID to the new value.  If the property is tracks and the vale is not blank, check to see if the ID has a track property.  If it does, push the value to that property.  If not, create an empty array and push the value to the empty array.  If there is no tracks then delete the property altogether.   
 
+**Day 67 5/5/2018 Saturday**
+Symmetric Difference Challenge
+
+I spent a while yesterday trying to figure out how to access the second part of sym.  This morning I found that Array.protype.slice.call(arguments) does the trick!  
+
+function sym(args) {
+
+var yoMaMa = Array.prototype.slice.call(arguments);
+console.log(yoMaMa);
+  
+}
+
+sym([1, 2, 3], [5, 2, 1, 4]);
+
+Now I can access all prarts of the array.  The next issue is that I don't know how many arrays will be used in sym. 
+
+function sym() {
+var args = [];
+for(var x=0; x<arguments.length; x++){
+  args.push(arguments[x]);
+   
+}
+ 
+//console.log(args);
+  
+   
+function difference(arr1, arr2){
+  var result = [];
+  arr1.forEach(function(balls){
+    if(arr2.indexOf(balls) < 0 && result.indexOf(balls) < 0){
+      result.push(balls);
+  
+  arr2.forEach(function(balls){
+    if(arr1.indexOf(balls)<0 && result.indexOf(balls)<0){
+      result.push(balls);
+     
+    }
+    
+  });
+       console.log(result);
+    
+      
+    }
+    
+  })
+    
+  }
+  return args.reduce(difference);
+}   
+  
+  
+
+
+sym([1, 2, 3], [5, 2, 1, 4]);
+
