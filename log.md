@@ -611,9 +611,7 @@ function difference(arr1, arr2){
     }
     
   });
-       
-    
-      
+             
     }
     
   });
@@ -622,9 +620,10 @@ function difference(arr1, arr2){
   }
   return args.reduce(difference);
 }   
-  
-  
-
 
 sym([1, 2, 3], [5, 2, 1, 4]);
+
+**Day 68 5/6/2018 Sunday**
+
+Explanation:  I spent some time going over this again.  I really like the simplicity, but I'm still struggling to wrap my mind around all of the concepts.  We start with creating an empty array for arr.  Then we use arguements.  We loop through arguments and push the results to our empty arr.  Next we create a function called difference to compare arr1 and arr2.  First we create a new empty array called results.  We loop through arr1 to see if there is an indexOf -1 for both arr2 and results.  If both return a -1, we know the number is not in arr2 and results.  So we push it to the results array.  We used arr1.forEach(function(balls){if... in the example above.  I used a for loop this morning for (var x=0; x<arr1.length; x++){if... The only difference is the for loop is a bit more combersome with arr1[x] and arr2[y], but it comes more intuitively to me than forEach(function(balls).  The real mind bender comes at the end with args.reduce(difference).   
 
