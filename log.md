@@ -627,3 +627,18 @@ sym([1, 2, 3], [5, 2, 1, 4]);
 
 Explanation:  I spent some time going over this again.  I really like the simplicity, but I'm still struggling to wrap my mind around all of the concepts.  We start with creating an empty array for arr.  Then we use arguements.  We loop through arguments and push the results to our empty arr.  Next we create a function called difference to compare arr1 and arr2.  First we create a new empty array called results.  We loop through arr1 to see if there is an indexOf -1 for both arr2 and results.  If both return a -1, we know the number is not in arr2 and results.  So we push it to the results array.  We used arr1.forEach(function(balls){if... in the example above.  I used a for loop this morning for (var x=0; x<arr1.length; x++){if... The only difference is the for loop is a bit more combersome with arr1[x] and arr2[y], but it comes more intuitively to me than forEach(function(balls).  The real mind bender comes at the end with args.reduce(difference).   
 
+**Day 69 5/7/2018 Monday**
+Started the Exact Change problem.  Only got a for loop to give me the contents of the array.  A good start, but now comes the harder part.
+
+function checkCashRegister(price, cash, cid) {
+  var change =  cash - price;
+   //console.log(cid[1]);
+  
+  //console.log(change);
+  for(x=0; x<cid.length; x++){
+    console.log(cid[x][1]);
+  }
+  return change;
+}
+
+checkCashRegister(19.50, 20.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
