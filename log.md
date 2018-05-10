@@ -642,3 +642,11 @@ function checkCashRegister(price, cash, cid) {
 }
 
 checkCashRegister(19.50, 20.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
+
+
+**Day 71 5/9/2018 Wednesday**
+Back to the drawing board on the Exact Change Challenge.
+I'm using this code to loop backwards through my for loop:
+for(var i = cid.length -1; i>=0; i-- ){
+    console.log(cid[i]);
+  }
