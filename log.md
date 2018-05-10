@@ -650,3 +650,27 @@ I'm using this code to loop backwards through my for loop:
 for(var i = cid.length -1; i>=0; i-- ){
     console.log(cid[i]);
   }
+function checkCashRegister(price, cash, cid) {
+  var change = (cash - price) * 10;
+  var result = [];
+   
+  
+  for(var i = cid.length -1; i>=0; i-- ){
+    var names = cid[i][0];
+    var money = cid[i][1];
+    var test = money - change;
+    //console.log(money);
+    //console.log(change);
+   if(test>0){result.push(test);} 
+    
+  }
+      
+  // if(change>0){
+   // money--;
+   // change--;
+   // result.push(money - change);
+      
+  // }
+  console.log(result); //[95, 55, 15, 50, 85]  
+  
+}
