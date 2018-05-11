@@ -674,3 +674,20 @@ function checkCashRegister(price, cash, cid) {
   console.log(result); //[95, 55, 15, 50, 85]  
   
 }
+
+
+**Day 72 5/10/2018 Thursday**
+
+I found a tutorial on creating custom Wordpress themes yesterday.  I'm excited to give it a try soon: https://www.taniarascia.com/developing-a-wordpress-theme-from-scratch/ and this one looks helpful too http://webdesignerwall.com/tutorials/building-custom-wordpress-theme
+
+**Day 73 5/11/2018 Friday**
+I'm using the map function to provide all of the money in cid.  Then the reduce functions to total all of the cash in drawer.
+var cidMoney = cid.map(function(balls){
+    //console.log(balls[1]);
+     return balls[1];
+  });
+  
+  var totalMoney = money.reduce(function(a,b){
+    return a+b;
+  })
+  console.log(totalMoney.toFixed(2));
