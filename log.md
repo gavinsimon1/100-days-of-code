@@ -691,3 +691,87 @@ var cidMoney = cid.map(function(balls){
     return a+b;
   })
   console.log(totalMoney.toFixed(2));
+  
+  **Day 74 5/12/2018 Saturday**
+  
+  Getting close but hit some large snags.  It almost returns the correct amount, but the pennies aren't included.  Also, it's not passing the test case for 0.50.  It returns ("QUARTERS, .5) or ("QUARTERS, "0.50") which is not passing.  Here is what I have so far: 
+  
+  function checkCashRegister(price, cash, cid) {
+  var change = (cash - price).toFixed(2);
+  var result = [];
+  var cashToPay = [];
+  
+  var cidMoney = cid.map(function(balls){
+    //console.log(balls[1]);
+    return balls[1];
+    
+  });
+  
+  var allMoney = cidMoney.reduce(function(a,b){
+    return a+b;
+  });
+   
+   totalMoney = allMoney.toFixed(2);
+   
+  
+  var totalChange = totalMoney - change; 
+  if (totalChange < 0){
+    return "Insufficient Funds";
+  } else if(totalChange === 0){
+    return "Closed";
+  }
+
+
+ for(var x = cid.length - 1; x > 0; x--){
+   var coinNames = cid[x][0];
+   var totalCoins = cid[x][1];
+   var nameValue = findValue(coinNames);
+   var coinAmount = totalCoins/nameValue;
+   var toReturn = 0;
+   
+ while (change >= nameValue && coinAmount > 0){
+   change -= nameValue;
+   coinAmount--;
+   toReturn++;
+ }
+   
+ 
+ if(toReturn > 0){
+    var myNumber = toReturn * nameValue;
+ 
+   result.push(coinNames, parseFloat(myNumber.toFixed(2)));
+ }  
+ 
+ }
+   
+      return result;
+ }
+
+
+function findValue(names){
+  
+  switch (names){
+    case "PENNY":
+      return 0.01;
+    case "NICKEL":
+      return 0.05;
+    case "DIME":
+      return 0.10;
+    case "QUARTER":
+      return 0.25;
+    case "ONE": 
+      return 1;
+    case "FIVE":
+      return 5;
+    case "TEN":
+      return 10;
+    case "TWENTY": 
+      return 20;
+    case "ONE HUNDRED":
+      return 100;
+    
+}    
+}
+
+checkCashRegister(3.26, 100.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
+
