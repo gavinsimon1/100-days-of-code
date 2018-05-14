@@ -776,6 +776,8 @@ function findValue(names){
 checkCashRegister(3.26, 100.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
 
   **Day 75 5/13/2018 Sunday**
+  Exact Change Challenge Solution:
+  
 var denominations = [
   {name: "HUNDRED" , value: 100},
    {name: "TWENTY" , value: 20},
@@ -829,7 +831,53 @@ function checkCashRegister(price, cash, cid) {
   
   return result.length > 0 && change === 0 ? result: "Insufficient Funds";
   
+  **Day 76 5/14/2018 Monday**
+  Reviewed and reworked through Exact Change today.  First we create an object called money, which is outside of the checkCashRegister function.  An object has key value pairs, which can be accessed using money.name and money.value.  Cid is a 2D Array which can be accessed with Cid[0] to get the name and cid[1] to get the value.  We get the change owed by subtracting the price from the cash.  We use the reduce method on cid to get the total value of the money in the cash register.  We add the next value in cid, which is b[1], to the accumulator.  We need to give the accumulator a starting value of 0.0.  If the total in the register is less than the change due, we return "Insufficient Funds".  If the two are equal, we return "Closed". We reverse the cid array so it aligns with the decending order we have in our money object, (100 lines up with 100, 20 lines up with 20, etc.). Now we get to the meat of our function.  We use reduce on the money object.  We use the accumulator, next, and the index.  We also need to add an empty array at the end.  This is to return a 2D array instead of a 1D array.  Next.value is the value in the money object (100, 20, 10, etc.).  If change is greater than this value, so if 50 cents is greater than 25 cents, we use our while loop.  We set a current value equal to 0.00.  We also look at the value in the cash in drawer 2D array with cid[index][1].  cid[index][1] will be 100, than 60, than 20, than 55, etc. While change is greater than the object's current value and cid[index][1] is greater than or equal to the current value, we do math.  If it's .25 cents in our next.value then we add that .25 to the current value, we subtract change, and we subtract from the cash register.  We use Math.round to make sure the decimals are correct. The final part is if we owe .50 cents but we only have a $10 bill, we can't return change.  So the last line says to return insufficient funds if the result greater than 0 and change is equal to zero.
+ 
+  var money = [
+  {name: "HUNDRED" , value: 100},
+   {name: "TWENTY" , value: 20},
+  {name: "TEN" , value: 10},
+  {name: "FIVE" , value: 5},
+  {name: "ONE" , value: 1},
+   {name: "QUARTER" , value: 0.25},
+    {name: "DIME" , value: 0.10},
+   {name: "NICKEL"  , value: 0.05},
+  {name: "PENNY" , value: 0.01}, 
+     
+   ];
+
+function checkCashRegister(price, cash, cid) {
+  var change = cash - price;
+ var register =  cid.reduce(function (a,b){
+    return a + b[1];
+  }, 0.0);
+  
+ if(register < change){
+   return "Insufficient Funds";
+ } else if (register === change){
+   return "Closed";
+ }
+  
+  cid = cid.reverse();
+  
+ var result = money.reduce(function(acc, next, index){
+   if(change >= next.value){
+     var currentValue = 0.00;
+     while(change >= next.value && cid[index][1] >= next.value){
+       currentValue += next.value;
+       change -= next.value;
+       change = Math.round(change*100)/100;
+       cid[index][1] -= next.value;
+     }
+      acc.push([next.name, currentValue]);
+      return acc;
+   } else {
+     return acc;
+   } 
+ },[]);
+  
+  return result.length > 0 && change === 0 ? result: "Insufficient Funds";
 }
 
 checkCashRegister(19.50, 20.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
-
