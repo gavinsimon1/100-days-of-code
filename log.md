@@ -881,3 +881,7 @@ function checkCashRegister(price, cash, cid) {
 }
 
 checkCashRegister(19.50, 20.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
+
+ **Day 77 5/15/2018 Tuesday**
+ 
+ Starting on Inventory Update challenge.  I can push the items into a new array.  But it's more complex than that.  Need to comapre and update the 2d array.  Reading about the sort method now.
