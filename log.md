@@ -885,3 +885,49 @@ checkCashRegister(19.50, 20.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1
  **Day 77 5/15/2018 Tuesday**
  
  Starting on Inventory Update challenge.  I can push the items into a new array.  But it's more complex than that.  Need to comapre and update the 2d array.  Reading about the sort method now.
+ 
+ **Day 79 5/17/2018 Thursday**
+ Still trying to combine these 2D arrays. 
+ 
+ function updateInventory(arr1, arr2) {
+  var newArr = [];
+   //console.log(arr1[2][0]);
+  //console.log(arr1[0][1]);
+  for(var x=0; x < arr1.length; x++){
+    //console.log(arr1[x][1]);
+    //console.log(arr1[x][0]); returns number
+   for(var y=0; y < arr2.length; y++){
+      
+     if(arr1[x][1] === arr2[y][1]){
+       //console.log(arr1[x]);
+        
+        newArr.push(arr1[x][0] + arr2[y][0], arr1[x][1]);
+        
+       }
+     }
+   
+  }
+  
+    console.log(newArr);
+  
+  }
+
+
+
+// Example inventory lists
+var curInv = [
+    [21, "Bowling Ball"],
+    [2, "Dirty Sock"],
+    [1, "Hair Pin"],
+    [5, "Microphone"]
+];
+
+var newInv = [
+    [2, "Hair Pin"],
+    [3, "Half-Eaten Apple"],
+    [67, "Bowling Ball"],
+    [7, "Toothpaste"]
+];
+
+updateInventory(curInv, newInv);
+
