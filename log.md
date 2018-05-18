@@ -931,3 +931,6 @@ var newInv = [
 
 updateInventory(curInv, newInv);
 
+**Day 80 5/18/2018 Friday**
+Still basically where I started with this problem a few days ago.  I'm ablt to return an array with the duplicate elements added together.  But I'm not sure how to add the rest of the elements that are not duplicated.  The result of my current code is [[88, "Bowling Ball"], [3, "Hair Pin"]].  I'm using 2 for loops and pushing the results to a new array.  But I need to add the other arrays and then alphabatize it.  It doesn't seem like it should be hard, but I keep running into obstacles.  
+
