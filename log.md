@@ -934,3 +934,82 @@ updateInventory(curInv, newInv);
 **Day 80 5/18/2018 Friday**
 Still basically where I started with this problem a few days ago.  I'm ablt to return an array with the duplicate elements added together.  But I'm not sure how to add the rest of the elements that are not duplicated.  The result of my current code is [[88, "Bowling Ball"], [3, "Hair Pin"]].  I'm using 2 for loops and pushing the results to a new array.  But I need to add the other arrays and then alphabatize it.  It doesn't seem like it should be hard, but I keep running into obstacles.  
 
+**Day 83 5/21/2018 Monday**
+Finally got through the Exact Change Challenge!
+function updateInventory(arr1, arr2) {
+    // All inventory must be accounted for or you're fired!
+    var newArr = [];
+    for(var x = 0; x < arr1.length; x++){
+      for(var y = 0; y < arr2.length; y++){
+        if(arr1[x][1] === arr2[y][1]){
+          arr1[x][0] = arr1[x][0] + arr2[y][0];
+          newArr.push([arr1[x][0], arr1[x][1]]);
+          arr1.splice(x,1);
+          arr2.splice(y,1);
+        }
+      }
+    }
+  newArr = newArr.concat(arr1);
+  newArr = newArr.concat(arr2);
+  function balls(a,b){
+    if(a[1] < b[1]) return -1;
+    if(a[1] > b[1]) return 1;
+    return 0;
+  }
+  newArr.sort(balls); 
+  return newArr;
+}
+
+ 
+
+// Example inventory lists
+var curInv = [
+    [21, "Bowling Ball"],
+    [2, "Dirty Sock"],
+    [1, "Hair Pin"],
+    [5, "Microphone"]
+];
+
+**Day 84 5/22/2018 Tuesday**
+
+Starting to work on No Repeats challenge.  Taking a look at Heap’s Permutation Algorithm
+
+var swap = function (array, pos1, pos2) {
+  var temp = array[pos1];
+  array[pos1] = array[pos2];
+  array[pos2] = temp;
+};
+
+var heapsPermute = function (array, output, n) {
+  n = n || array.length; // set n default to array.length
+  if (n === 1) {
+    output(array);
+  } else {
+    for (var i = 1; i <= n; i += 1) {
+      heapsPermute(array, output, n - 1);
+      if (n % 2) {
+        var j = 1;
+      } else {
+        var j = i;
+      }
+      swap(array, j - 1, n - 1); // -1 to account for javascript zero-indexing
+    }
+  }
+};
+
+
+// For testing:
+var print = function(input){
+  console.log(input);
+}
+
+heapsPermute(['a', 'b', 'c', 'd'], print);
+// heapsPermute([1, 2, 3], print)
+var newInv = [
+    [2, "Hair Pin"],
+    [3, "Half-Eaten Apple"],
+    [67, "Bowling Ball"],
+    [7, "Toothpaste"]
+];
+
+updateInventory(curInv, newInv);
