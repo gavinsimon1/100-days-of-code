@@ -1013,3 +1013,39 @@ var newInv = [
 ];
 
 updateInventory(curInv, newInv);
+
+**Day 85 5/23/2018 Wednesday**
+Working on the No Repeats Please problem. 
+
+function permAlone(str) {
+  
+  var consec = /(.)\1/;
+  
+  return heap(str).filter(function(balls){
+    return !consec.test(balls);
+  }).length;
+  
+  function heap(str){
+    var arr = string.split('');
+    var perm = [];
+    
+    function swap(a,b){
+      var temp = arr[a];
+      arr[a] = arr[b];
+      arr[b] = temp;
+    }
+    
+    function gen(n){
+      if(n === 1){
+        perm.push(arr.join(''));
+      } else {
+        for (var i = 0; i != n; i++){
+          gen(n-1);
+          swap(n % 2 ? 0 : i, n - 1);
+        }
+      }
+    }
+    gen(arr.length);
+    return perm;
+    
+  }
