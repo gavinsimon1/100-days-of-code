@@ -1049,3 +1049,47 @@ function permAlone(str) {
     return perm;
     
   }
+  
+  **Day 91 5/29/2018 Tuesday **
+  
+  Make a Person Challenge
+  
+  var Person = function(firstAndLast) {
+    // Complete the method below and implement the others similarly
+   
+  var firstName;
+  var lastName;
+  
+  this.getFirstName = function (){
+    return firstName;
+  };
+  
+  this.getLastName = function (){
+    return lastName;
+  };
+  
+  this.getFullName = function() {
+      return firstName + ' ' + lastName;
+    };
+ 
+  this.setFirstName = function(first){
+      firstName = first;
+  };
+  
+  this.setLastName = function(last){
+    lastName = last;
+  };
+  
+  this.setFullName = function(firstAndLast){
+    firstAndLast = firstAndLast.split(' ');
+    firstName = firstAndLast[0];
+    lastName = firstAndLast[1];
+  };
+  
+  this.setFullName(firstAndLast);
+  
+};
+
+var bob = new Person('Bob Ross');
+bob.getFullName();
+
