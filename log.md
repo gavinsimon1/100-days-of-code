@@ -1093,3 +1093,12 @@ function permAlone(str) {
 var bob = new Person('Bob Ross');
 bob.getFullName();
 
+  **Day 100 6/8/2018 Friday**
+  In 100 days of Code I:
+  * Started waking up at 5am to code
+  * Got my portfolio online
+  * Built 2 websites
+  * Worked through most of the Free Code Camp advanced algorithms
+  * Learned a ton
+  
+ 
